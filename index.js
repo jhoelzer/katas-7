@@ -11,21 +11,16 @@
     // }
 
     // input();
-    
-// let mainDiv = document.createElement("div");
-// mainDiv.id = "main";
-// document.body.appendChild(mainDiv);
 
-// function show(text, type) {
-//     let katasText = document.createTextNode(text);
-//     let element = document.createElement(type);
-//     element.appendChild(katasText);
-//     mainDiv.appendChild(element);
-// }
 
 const letters = ["A", "B", "C", "D", "E"];
 const numbers = [1, 4, 15, 3, 9, 11, 6, 1, 0, 13];
-const words = ["here", "are", "some", "words", "to", "utilize"]
+const words = ["here", "are", "some", "words", "to", "utilize"];
+
+console.log('Letters Array: ["A", "B", "C", "D", "E"]');
+console.log('Numbers Array: [1, 4, 15, 3, 9, 11, 6, 1, 0, 13]');
+console.log('Words Array: ["here", "are", "some", "words", "to", "utilize"]');
+console.log("");
 
 // 1) forEach()
 console.log("forEach():")
@@ -39,8 +34,9 @@ function forEachFunction(arrayForEach, callbackForEach) {
 forEachFunction(letters, function (letter, i, arrayForEach) {
     const vowel = letter === "A" || letter === "E" || letter === "I" || letter === "O" || letter === "U";
     const letterType = vowel ? "Vowel" : "Consonant";
-    console.log(`The letter '${letter}' at position ${i} of ${arrayForEach} is a ${letterType}.`)
-})
+    console.log(`The letter '${letter}' at position ${i} of ${arrayForEach} is a ${letterType}.`);
+});
+console.log("");
 
 
 // 2) map()
@@ -57,6 +53,7 @@ mapFunction(numbers, function(number, index) {
     const mult = numbers.map(number => number * 2);
     console.log(`The number '${number}' in ${numbers} is now ${mult[index]}`);
 });
+console.log("");
 
 
 // 3) some()
@@ -69,19 +66,7 @@ function someFunction(arraySome, callbackSome) {
     return false;
 }
 console.log(`Does any item in [${words}] contain more than 4 characters? ${someFunction(words, item => item.length > 4)}`);
-
-
-// function some(arraySome, callbackSome) {
-//     for (let i = 0; i < arraySome.length; i++) {
-//         const checkArray = arraySome[i];
-//         if (checkArray !== arraySome[i]) {
-//             return false;
-//         } else {
-//             return true;
-//         }
-//         callbackSome(checkArray, i, arraySome);
-//     }
-// }
+console.log("");
 
 
 // 4) find()
@@ -93,29 +78,7 @@ function findFunction(arrayFind, callbackFind){
     }
 }
 console.log(`First item in [${words}] with the letter "O" is "${findFunction(words, item => item.includes("o"))}"`);
-
-// console.log(betterFind(numbers, x => x > 2))
-// function find(arrayFind, callbackFind) {
-//     for (let i = 0; i < arrayFind.length; i++) {
-//         const findInArray = arrayFind[i];
-//         if (findInArray[i] === arrayFind[i]) {
-//             return findInArray;
-//         } else {
-//             return "undefined";
-//         }
-//     }
-//     callbackFind(findInArray, i, arrayFind);
-// }
-
-
-// function find(arrayFind, callbackFind) {
-//     const findInArray = findIndex(arrayFind, callbackFind);
-//     if (findInArray === -1) {
-//         return "undefined";
-//     } else {
-//         return arrayFind[findInArray];
-//     }
-// }
+console.log("");
 
 
 // 5) findIndex()
@@ -129,6 +92,7 @@ function findIndexFunction(arrayFindIndex, callbackFindIndex) {
 }
 let x = findIndexFunction(words, item => item.length < 3)
 console.log(`The index of [${words}] with fewer than 3 characters is: ${x} and that word is "${words[x]}"`);
+console.log("");
 
 
 // 6) every()
@@ -140,31 +104,18 @@ function everyFunction(arrayEvery, callbackEvery) {
     } return true;
 }
 console.log(`Is every number in [${numbers}] less than 13? ${everyFunction(numbers, number => number < 13)}`);
+console.log("");
 
 
 // // 7) filter()
 console.log("filter():")
 function filterFunction(arrayFilter, callbackFilter) {
     const arrayFilterNew = [];
-    for (let i = 0; i < arrayFilter; i++) {
+    for (let i = 0; i < arrayFilter.length; i++) {
         const currentValue = arrayFilter[i];
-        if (callbackFilter(currentValue) === true) {
+        if(callbackFilter(currentValue) === true) {
             arrayFilterNew.push(currentValue);
         }
-    }
-    return arrayFilterNew;
+    } return arrayFilterNew;
 }
-console.log(`Words in [${words}] with the letter "u" are ${filterFunction(words, words => words.includes("u"))}`);
-
-
-// function filter(arrayFilter, callbackFilter) {
-//     for (let i = 0; i < arrayFilter.length; i++) {
-//         const filterArray = arrayFilter[i];
-//         if (filterArray[i] === arrayFilter[i]) {
-//             return true;
-//         } else {
-//             return false;
-//         }
-//     }
-//     callbackFilter(filterArray, i, arrayFilter);
-// }
+console.log(`Words in [${words}] with the letter "o" are "${filterFunction(words, word => word.includes("o"))}"`);
